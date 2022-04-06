@@ -7,6 +7,7 @@ import egovframework.let.cop.bbs.service.BoardVO;
 import egovframework.let.temp.service.TempVO;
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
 import egovframework.rte.psl.dataaccess.mapper.Mapper;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 import org.springframework.stereotype.Repository;
 
@@ -15,5 +16,6 @@ import org.springframework.stereotype.Repository;
 public interface TempMapper {
 	TempVO selectTemp(TempVO vo)throws Exception;
 	
+	List<EgovMap> selectTempList(TempVO vo) throws Exception;
 }
 

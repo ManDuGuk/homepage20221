@@ -16,6 +16,7 @@ import egovframework.let.utl.fcc.service.EgovStringUtil;
 
 import egovframework.rte.fdl.cmmn.exception.EgovBizException;
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
 
 import javax.annotation.Resource;
@@ -45,6 +46,15 @@ public class TempController {
 		TempVO result =tempService.selectTemp(searchVO);
 		model.addAttribute("result",result);
 		return "temp/TempSelect";
+	}
+	
+	@RequestMapping(value="/temp/selectList.do")
+	public String selectList(@ModelAttribute("searchVO") TempVO searchVO,HttpServletRequest request,ModelMap model) throws Exception{
+		
+		List<EgovMap> resultList = tempService.selectTempList(searchVO);
+		model.addAttribute("resultList",resultList);
+		
+		return "temp/TempSelectList";
 	}
 	
 }

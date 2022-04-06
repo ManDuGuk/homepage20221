@@ -3,9 +3,13 @@ package egovframework.let.temp.service;
 import java.util.List;
 import java.util.Map;
 
+import egovframework.rte.psl.dataaccess.util.EgovMap;
+
 
 public interface TempService {
 
 	public TempVO selectTemp(TempVO vo) throws Exception;
+	
+	public List<EgovMap> selectTempList(TempVO vo) throws Exception;
 
 }

@@ -17,6 +17,7 @@ import egovframework.let.utl.fcc.service.EgovDateUtil;
 
 import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
 import egovframework.rte.fdl.property.EgovPropertyService;
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 import javax.annotation.Resource;
 
@@ -36,6 +37,10 @@ implements TempService {
 	@Override
 	public TempVO selectTemp(TempVO vo)	throws Exception{
 		return tempMapper.selectTemp(vo);
+	}
+	
+	public List<EgovMap> selectTempList(TempVO vo) throws Exception{
+		return tempMapper.selectTempList(vo);
 	}
 	
 //	@Override
