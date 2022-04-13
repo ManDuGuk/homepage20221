@@ -43,6 +43,21 @@ implements TempService {
 		return tempMapper.selectTempList(vo);
 	}
 	
+	public String insertTemp(TempVO vo) throws Exception{
+		tempMapper.insertTemp(vo);
+		return null;
+	}
+	
+	public void updateTemp(TempVO vo) throws Exception{
+		tempMapper.updateTemp(vo);
+		
+	}
+	
+	public void deleteTemp(TempVO vo) throws Exception{
+		tempMapper.deleteTemp(vo);
+		
+	}
+	
 //	@Override
 //	public TempVO selectTemp(TempVO vo)	throws Exception{
 //		return tempDAO.selectTemp(vo);
