@@ -17,4 +17,6 @@ public interface TempService {
 	public void updateTemp(TempVO vo) throws Exception;
 	
 	public void deleteTemp(TempVO vo) throws Exception;
+	
+	public int selectTempListCnt(TempVO vo) throws Exception;
 }

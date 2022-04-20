@@ -58,6 +58,11 @@ implements TempService {
 		
 	}
 	
+	public int selectTempListCnt(TempVO vo) throws Exception{
+		return tempMapper.selectTempListCnt(vo);
+		
+	}
+	
 //	@Override
 //	public TempVO selectTemp(TempVO vo)	throws Exception{
 //		return tempDAO.selectTemp(vo);

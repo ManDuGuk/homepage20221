@@ -51,6 +51,23 @@ public class TempController {
 	@RequestMapping(value="/temp/selectList.do")
 	public String selectList(@ModelAttribute("searchVO") TempVO searchVO,HttpServletRequest request,ModelMap model) throws Exception{
 		
+//		List<EgovMap> resultList = tempService.selectTempList(searchVO);
+//		model.addAttribute("resultList",resultList);
+		PaginationInfo paginationInfo =new PaginationInfo();
+		
+		paginationInfo.setCurrentPageNo(searchVO.getPageIndex());
+		paginationInfo.setRecordCountPerPage(searchVO.getPageUnit());
+		paginationInfo.setPageSize(searchVO.getPageSize());
+		
+		searchVO.setFirstIndex(paginationInfo.getFirstRecordIndex());
+		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
+		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
+		
+		int totCnt=tempService.selectTempListCnt(searchVO);
+		
+		paginationInfo.setTotalRecordCount(totCnt);
+		model.addAttribute("paginationInfo",paginationInfo);
+		
 		List<EgovMap> resultList = tempService.selectTempList(searchVO);
 		model.addAttribute("resultList",resultList);
 		
@@ -88,6 +105,17 @@ public class TempController {
 		
 		tempService.deleteTemp(searchVO);
 		return "forward:/temp/selectList.do";
+	}
+	
+	//JSTL
+	@RequestMapping(value="/temp/jstl.do")
+	public String jstl(@ModelAttribute("searchVO") TempVO searchVO,HttpServletRequest request,ModelMap model) throws Exception{
+		return "/temp/Jstl";
+	}
+	//JSTL Import
+	@RequestMapping(value="/temp/jstlImport.do")
+	public String jstlImport(@ModelAttribute("searchVO") TempVO searchVO,HttpServletRequest request,ModelMap model) throws Exception{
+		return "/temp/JstlImport";
 	}
 	
 }

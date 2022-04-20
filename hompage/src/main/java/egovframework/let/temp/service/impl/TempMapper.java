@@ -24,5 +24,7 @@ public interface TempMapper {
 	void updateTemp(TempVO vo) throws Exception;
 	
 	void deleteTemp(TempVO vo) throws Exception;
+	
+	int selectTempListCnt(TempVO vo) throws Exception;
 }
 
